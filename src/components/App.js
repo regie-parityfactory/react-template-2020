@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 function App(props) {
   return (
@@ -10,6 +9,3 @@ function App(props) {
 }
 
 export default App;
-
-const wrapper = document.getElementById("container");
-wrapper ? ReactDOM.render(<App />, wrapper) : false;

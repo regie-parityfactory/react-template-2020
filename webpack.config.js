@@ -1,6 +1,14 @@
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  devtool: "inline-source-map",
+  entry: "./src/index.js",
+  output: {
+    path: __dirname + "/dist",
+    publicPath: "/",
+    filename: "bundle.js"
+  },
   module: {
     rules: [
       {
@@ -39,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: path.resolve("./index.html"),
       filename: "index.html",
       favicon: "./src/favicon.gif"
     })
@@ -47,15 +55,11 @@ module.exports = {
 
   stats: { children: false },
 
-  output: {
-    publicPath: "/"
-  },
-
   // Set dev-server configuration
   devServer: {
     inline: true,
     contentBase: "./dist",
-    port: 5500,
+    port: 5000,
     historyApiFallback: true
   }
 };
